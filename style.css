@@ -22,7 +22,6 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-
 }
 
 
@@ -37,7 +36,6 @@ body {
     flex-grow: 1;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
-
 }
 
 .header {
@@ -46,12 +44,17 @@ body {
     width: 100%;
     margin: 0;
     top: 0;
-    height: 160px;
-   background-color: #333;
+    height: 150px;
+    background-color: #333;
+    color:white;
+    font-size: 55px;
+    align-items: center;
+    justify-content: center;
 }
 
-
-
+.titlu:hover{
+    color:black;
+}
 
 .responsive-menu-container {
     display: none;
@@ -67,10 +70,15 @@ body {
     padding: 5px 8px;
 }
 
+
+.responsive-menu-bar:hover{
+    color:#050df0;
+}
+
 #responsive-menu {
-    display: none;
+    display: block;
     width: 100%;
-    padding: 10px 0 10px 19px;
+    padding: 10px 19px 10px 19px;
     background: #CCC;
 }
 
@@ -86,6 +94,7 @@ body {
 
 #responsive-menu ul#primary-menu>li:hover {
     background: #e5e3e3;
+    padding-right: 10px;
 }
 
 #responsive-menu ul#primary-menu>li>a {
@@ -97,6 +106,11 @@ body {
     display: flex;
     justify-content: center;
     cursor: pointer;
+}
+
+.menu-close-bar:hover{
+    background-color:#3333333a;
+    color:black;
 }
 
 @media (max-width: 800px) {
@@ -127,7 +141,6 @@ body {
 .bara {
     width: 100%;
     height: auto;
-    
 }
 
 .navbar{
@@ -149,14 +162,15 @@ body {
     padding: 20px;
     display: block;
     text-align: center;
-    font-size: 28px;
+    font-size: 27px;
     transition: background-color 0.3s, color 0.3s;
     /* margin-right: 10px; */
 }
 
 .navbar a:hover {
 
-    color: rgb(63, 63, 213);
+    color: white;
+    background-color: #171717;
 }
 
 .navbar li {
