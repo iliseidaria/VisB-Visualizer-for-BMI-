@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: sans-serif;
 }
 
 body {
@@ -29,9 +30,7 @@ body {
     width: 80%;
     height: auto;
     background-color: white;
-    flex-grow: 1;
-    display: flex;
-    align-items: center;
+    display: flex;  
     flex-direction: column;
     flex-grow: 1;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -40,24 +39,27 @@ body {
 
 .header {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 100%;
-    margin: 0;
-    top: 0;
     height: 150px;
     background-color: #333;
-    color:white;
-    font-size: 55px;
-    align-items: center;
-    justify-content: center;
 }
 
-.titlu:hover{
+
+.titlu {
+    color: white;
+    font-size: 50px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.titlu:hover {
     color:black;
 }
 
+/*responsive menu*/
 .responsive-menu-container {
-    display: none;
+    display:none;
     width: 100%;
 }
 
@@ -70,8 +72,7 @@ body {
     padding: 5px 8px;
 }
 
-
-.responsive-menu-bar:hover{
+.responsive-menu-bar:hover {
     color:#050df0;
 }
 
@@ -108,7 +109,7 @@ body {
     cursor: pointer;
 }
 
-.menu-close-bar:hover{
+.menu-close-bar:hover {
     background-color:#3333333a;
     color:black;
 }
@@ -138,12 +139,14 @@ body {
     }
 }
 
+/*menu-navbar*/
+
 .bara {
     width: 100%;
     height: auto;
 }
 
-.navbar{
+.navbar {
     border-bottom: solid;
 }
 
@@ -187,9 +190,7 @@ body {
 .text-stuff {
     width: 100%;
     background-color: white;
-    height: 100%;
-    padding-bottom: 5vh;
-
+    height: auto;
 }
 
 footer {
@@ -201,9 +202,316 @@ footer {
     align-items: flex-end;
 }
 
-@media (max-width: 400px){
+@media (max-width: 400px) {
     .fake-body {
         width: 400px;
        
     }
+}
+
+/*index.html*/
+
+.description1 {
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 15px;
+ }
+
+ .description2 {
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 15px;
+ }
+
+.partition1 {
+    display:flex;
+    flex-direction: column;
+    width: 95%;
+    font-size: 15px;
+    border-radius: 15px;
+    box-shadow:0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: rgba(212, 211, 211, 0.581);
+    margin: 20px auto; 
+    padding-top: 5px; 
+    padding-bottom: 5px;
+}
+
+.partition2, .partition3 {
+  display: flex; 
+  flex-wrap: wrap; 
+  justify-content: space-around; 
+  font-size: 15px;
+  padding:10px;
+}
+
+.calculator,
+.desen,
+.adults,
+.children {
+  flex-grow: 1; 
+  padding: 5px; 
+  box-sizing: border-box; 
+}
+
+.adults table, .children table {
+    border-collapse: collapse;
+    width: 100%; 
+}
+  
+.adults th, .adults td, .children th, .children td {
+    border: 1px solid #ddd;
+    padding: 7px;
+    text-align: left; 
+}
+  
+.adults th , .children th {
+    background-color: #f2f2f2;
+}
+
+.formule {
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #f5f5f5; 
+    transform: translateZ(0); /*pozitionez elementul de pe axa Z la 0*/
+    transition: color 0.5s;
+}
+
+.formule:before{/*pseudo-element inserat inaintea continutului din elementul cu clasa .formule, adica doar culoarea*/
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;/*pozitionez pseudo-elementul in spatele continutului din .formule*/
+  background: linear-gradient(to right, #ecde0d, #18972be2,  #ec720e, #c90b0be9);
+  transform: scaleX(0);/*ascunde initial axa Ox pt a face efectul de sweep right*/
+  transform-origin: 0;/*seteaza originea pentru sweep la marginea stanga*/
+  transition: transform 0.5s ease-out;
+}
+
+.formule:hover{
+    color:black;
+}
+.formule:hover:before{
+    transform: scalex(1);
+}
+  
+.formule h3 {
+    font-weight: bold;
+}
+  
+.formule p {
+    margin-bottom: 5px;
+}
+
+
+.calculator {
+    margin: 10px; 
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    background-color: #f5f5f5; 
+}
+
+.calculator_data{
+    display: flex;
+    justify-content: space-between;
+    font-size:15px;
+    font-weight:500;
+}
+  
+.calculator label,.calculator input[type="number"] {
+    margin-top: 5px;
+    margin-bottom: 5px; 
+    font-weight: bold; 
+}
+  
+.calculator input[type="number"] {
+    width: 100%;
+    padding: 8px; 
+    border: 1.7px solid #3333335a; 
+    border-radius: 3px; 
+}
+  
+.calculator button[type="submit"] {
+    background-color: #333; 
+    color: white;
+    padding: 10px 20px; 
+    border-radius: 5px; 
+    cursor: pointer;
+    margin: 10px auto;
+    width: 100%;
+}
+
+.calculator button[type="submit"]:hover {
+    background-color:#050df0;
+}
+
+.calculator_data button {
+    padding: 10px 10px;
+    border: none;
+    border-radius: 5px;
+    background-color:#333 ;
+    color: #fff;
+    cursor: pointer;
+}
+
+.desen{
+    display:flex;
+    flex-direction: column;
+    justify-content:space-around;
+    align-items: center;
+}
+
+/*login.html*/
+
+.login-buttons{
+    width: 100%;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.login-container {
+    width: 300px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+    text-align: left;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+input[type="submit"] {
+    background-color: #75737c;
+    margin-top: 10px;
+    color: black;
+    padding: 14px 20px;
+    border: 1px solid #000000;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+}
+
+input[type="submit"]:hover {
+    background-color: #a7a7a757;
+}
+
+.button-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+}
+
+.button-bar select {
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    color: #333;
+}
+
+.buton-admin{
+    width: 100%;
+    align-items: center;
+    padding-top: 100px;
+    justify-content: center;
+    display: flex;
+ }
+ 
+ .buton-admin button {
+     padding: 10px 20px; 
+     font-size: 16px; 
+ }
+
+.mail{
+    text-decoration: none;
+}
+
+.text-nume{
+    font-size: 30px;
+}
+
+.action-buttons{
+    margin-top: auto;
+    padding: 30px;
+    font-size: 20px; 
+    justify-content: center;
+    align-items: center;
+}
+
+.text-main{
+    padding: 20px;
+    font-size: 18px;
+}
+
+/*export buttons*/
+.export{
+    margin-top: auto;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.export-text{
+    font-size: 20px;
+    font-weight: 500;
+    border-top: 2.5px solid #000000;
+    padding-top: 2px;
+    color:black;
+    width: 100%;
+    text-align: center;
+}
+
+.action-buttons{
+    width:100%;
+    display:flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.action-buttons button[type="button"]:hover{
+    background-color: white;
+    color: black;
+}
+
+.action-buttons button[type="button"]
+{
+    background-color: #333; 
+    color: white;
+    padding: 10px 20px; 
+    border-radius: 7px; 
+    cursor: pointer;
+    width: 30%;
+}
+
+/*contact.html*/
+.programatori{
+    display: flex;
+    padding: 10px;
 }

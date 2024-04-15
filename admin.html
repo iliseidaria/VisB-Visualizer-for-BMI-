@@ -21,12 +21,7 @@
                 <div class="bara">
                     <nav class="navbar">
                         <ul>
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="statistics.html">Statistics</a></li>
-                            <li><a href="comparasion.html">Comparison</a></li>
-                            <li><a href="visualization.html">Visualization</a></li>
-                            <li><a href="contact.html">Contact</a></li>
-                            <li><a href="login.html">Login</a></li>
+                            <li><a href="index.html">Logout</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -38,32 +33,23 @@
                     </div>
                     <div id="responsive-menu">
                         <ul id="primary-menu">
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="statistics.html">Statistics</a></li>
-                            <li><a href="comparasion.html">Comparison</a></li>
-                            <li><a href="visualization.html">Visualization</a></li>
-                            <li><a href="contact.html">Contact</a></li>
-                            <li><a href="login.html">Login</a></li>
+                            
+                            <li><a href="index.html">Logout</a></li>
                         </ul>
                         <div id="menu-close-bar" class="menu-close-bar"> Close</div>
                     </div>
                 </div>
                 <div class="text-stuff">
                     <div class="text-main">
-                        <p>Coming soon...[data is required in order to generate visualizations]</p>
-                        <br>
+                        <form action="procesare_date.php" method="post">
+                            <label for="date_field">Enter the data you want to edit [ using ' , ' to separate the information ]:</label>
+                            <input type="text" id="date_field" name="date_field" required><br>
+                            <input type="submit" value="Save">
+                            <input type="submit" value="Delete">
+                        </form>
                     </div>
-
                 </div>
                 
-                <div class="export">
-                    <p class="export-text">Export as:</p>
-                    <div class="action-buttons">
-                        <button type="button">CSV</button>
-                        <button type="button">WebP</button>
-                        <button type="button">SVG</button>
-                    </div>
-                </div>
 
             </div>
 
