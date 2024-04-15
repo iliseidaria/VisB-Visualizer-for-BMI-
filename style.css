@@ -343,7 +343,7 @@ footer {
     width: 100%;
 }
 
-.calculator button[type="submit"]:hover {
+.calculator button[type="submit"]:hover, .calculator button[type="button"]:hover {
     background-color:#050df0;
 }
 
@@ -354,6 +354,7 @@ footer {
     background-color:#333 ;
     color: #fff;
     cursor: pointer;
+    width: 30%;
 }
 
 .desen{
@@ -513,5 +514,21 @@ input[type="submit"]:hover {
 /*contact.html*/
 .programatori{
     display: flex;
-    padding: 10px;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 50px;
 }
+
+.contact-text, .contact-details{
+    display: flex;
+    margin:0px;
+    padding: 10px;
+    margin-left: 10px;
+}
+
+.persoana{
+    border-top: 2.5px solid #000000;
+    border-bottom: 2.5px solid #000000;
+    padding: 20px;
+}
+
