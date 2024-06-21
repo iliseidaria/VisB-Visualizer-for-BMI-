@@ -21,12 +21,12 @@
                 <div class="bara">
                     <nav class="navbar">
                         <ul>
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="statistics.html">Statistics</a></li>
-                            <li><a href="comparasion.html">Comparison</a></li>
-                            <li><a href="visualization.html">Visualization</a></li>
-                            <li><a href="contact.html">Contact</a></li>
-                            <li><a href="login.html">Login</a></li>
+                            <li><a href="index.php">Home</a></li>
+                            <li><a href="statistics.php">Statistics</a></li>
+                            <li><a href="comparasion.php">Comparison</a></li>
+                            <li><a href="visualization.php">Visualization</a></li>
+                            <li><a href="contact.php">Contact</a></li>
+                            <li><a href="login.php">Login</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -38,22 +38,20 @@
                     </div>
                     <div id="responsive-menu">
                         <ul id="primary-menu">
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="statistics.html">Statistics</a></li>
-                            <li><a href="comparasion.html">Comparison</a></li>
-                            <li><a href="visualization.html">Visualization</a></li>
-                            <li><a href="contact.html">Contact</a></li>
-                            <li><a href="login.html">Login</a></li>
+                            <li><a href="index.php">Home</a></li>
+                            <li><a href="statistics.php">Statistics</a></li>
+                            <li><a href="comparasion.php">Comparison</a></li>
+                            <li><a href="visualization.php">Visualization</a></li>
+                            <li><a href="contact.php">Contact</a></li>
+                            <li><a href="login.php">Login</a></li>
                         </ul>
                         <div id="menu-close-bar" class="menu-close-bar"> Close</div>
                     </div>
                 </div>
-                <div class="text-stuff">
-                    <div class="text-main">
-                        <p>Coming soon...[data is required in order to generate visualizations]</p>
-                        <br>
-                    </div>
 
+
+                <div class="text-stuff">
+                    
                 </div>
                 
                 <div class="export">

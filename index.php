@@ -20,12 +20,12 @@
                 <div class="bara">
                     <nav class="navbar">
                         <ul>
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="statistics.html">Statistics</a></li>
-                            <li><a href="comparasion.html">Comparison</a></li>
-                            <li><a href="visualization.html">Visualization</a></li>
-                            <li><a href="contact.html">Contact</a></li>
-                            <li><a href="login.html">Login</a></li>
+                            <li><a href="index.php">Home</a></li>
+                            <li><a href="statistics.php">Statistics</a></li>
+                            <li><a href="comparasion.php">Comparison</a></li>
+                            <li><a href="visualization.php">Visualization</a></li>
+                            <li><a href="contact.php">Contact</a></li>
+                            <li><a href="login.php">Login</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -37,12 +37,12 @@
                     </div>
                     <div id="responsive-menu">
                         <ul id="primary-menu">
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="statistics.html">Statistics</a></li>
-                            <li><a href="comparasion.html">Comparison</a></li>
-                            <li><a href="visualization.html">Visualization</a></li>
-                            <li><a href="contact.html">Contact</a></li>
-                            <li><a href="login.html">Login</a></li>
+                            <li><a href="index.php">Home</a></li>
+                            <li><a href="statistics.php">Statistics</a></li>
+                            <li><a href="comparasion.php">Comparison</a></li>
+                            <li><a href="visualization.php">Visualization</a></li>
+                            <li><a href="contact.php">Contact</a></li>
+                            <li><a href="login.php">Login</a></li>
                         </ul>
                         <div id="menu-close-bar" class="menu-close-bar"> Close</div>
                     </div>
@@ -60,39 +60,78 @@
                         <div class="calculator_data">
                             <div class="unit-title">Unit Measurement:</div>
                             <button id="metricButton" type="button" class="selected">Metric</button>
-                            <button id="usButton" type="button">US/English</button>
+                            <button id="usButton" type="button">US / English</button>
                         </div>
 
-                        <form id="Form">
+                        <form id="Form" method="post">
                             <div class="metric-form">
-                                
                                 <label for="height">Height (cm):</label>
-                                <input type="number" id="height" name="height" min="120" max="250" placeholder="Enter your height">
+                                <input type="number" id="height" name="height" min="80" max="250" placeholder="Enter your height">
                         
                                 <label for="weight">Weight (kg):</label>
-                                <input type="number" id="weight" name="weight" min="30" max="200" placeholder="Enter your weight">
+                                <input type="number" id="weight" name="weight" min="11" max="300" placeholder="Enter your weight">
                             
-                                <button type="submit">Submit</button>
+                                <button type="submit" name="submit-metric">Submit</button>
                             </div>
 
-                            <div class="us-form">
-                                <label for="height">Height (ft):</label>
-                                <input type="number" id="height-ft" name="height-ft" min="3" max="7" placeholder="Enter your height">
+                            <div class="us-form" style="display: none;">
+                                <label for="height-inches">Height (inches):</label>
+                                <input type="number" id="height-inches" name="height-inches" min="32" max="100" placeholder="Enter your height">
                         
-                                <label for="weight">Weight (lbs):</label>
-                                <input type="number" id="weight-lbs" name="weight-lbs" min="60" max="500" placeholder="Enter your weight">
+                                <label for="weight-lbs">Weight (lbs):</label>
+                                <input type="number" id="weight-lbs" name="weight-lbs" min="22" max="660" placeholder="Enter your weight">
                             
-                                <button type="submit">Submit</button>
+                                <button type="submit" name="submit-us">Submit</button>
                             </div>
                         </form>
                     </div>
                 
-                    <div class="desen">
-                        <img src="https://austingynecomastiacenter.com/assets/img/blog/BMI-Chart-Simple.png" alt="temporary photo" width="400" height="300">
-                        <h3>Your result is: (work in progress...)</h3>
-                    </div>
+                    <div class="indicator">
+                        <div class="indicator-drawing">
+                        
+                        </div>
 
+                        <?php
+                        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                            require 'Model/CalculatorBMI.php';
+                            $calculator = new CalculatorBMI();
+                            $bmi = '';
+                            $weight = '';
+                            $height = '';
+                            $unit = '';
+
+                            if (isset($_POST['submit-metric'])) {
+                                $weight = $_POST['weight'] ?? null;
+                                $height = $_POST['height'] ?? null;
+
+                                if ($weight && $height) {
+                                    $bmi = $calculator->MetricBMI($weight, $height);
+                                    $unit = 'metric';
+                                } else {
+                                    echo "Please provide both weight and height.";
+                                }
+                            } elseif (isset($_POST['submit-us'])) {
+                                $weight_us = $_POST['weight-lbs'] ?? null;
+                                $height_us = $_POST['height-inches'] ?? null;
+
+                                if ($weight_us && $height_us) {
+                                    $bmi = $calculator->UsBMI($weight_us, $height_us);
+                                    $weight = $weight_us;
+                                    $height = $height_us;
+                                    $unit = 'us';
+                                } else {
+                                    echo "Please provide both weight and height.";
+                                }
+                            }
+
+                            if ($bmi) {
+                                $calculator->generateBMIIndicator($bmi, $weight, $height, $unit);
+                            }
+                        }
+                        ?>
+                    </div>
                 </div>
+
 
                 <div class="partition3">
                     <div class="adults">
@@ -192,7 +231,6 @@
         </div>
 
     </main>
-
 
     <script type='text/javascript' src='main.js'></script>
 </body>

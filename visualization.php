@@ -1,32 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VisB</title>
-    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
-
 <body>
     <main>
         <div class="fake-body">
             <div class="container">
                 <div class="header">
                     <p class="titlu">Visualizer for BMI</p>
-
                 </div>
 
                 <div class="bara">
                     <nav class="navbar">
                         <ul>
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="statistics.html">Statistics</a></li>
-                            <li><a href="comparasion.html">Comparison</a></li>
-                            <li><a href="visualization.html">Visualization</a></li>
-                            <li><a href="contact.html">Contact</a></li>
-                            <li><a href="login.html">Login</a></li>
+                            <li><a href="index.php">Home</a></li>
+                            <li><a href="statistics.php">Statistics</a></li>
+                            <li><a href="comparasion.php">Comparison</a></li>
+                            <li><a href="visualization.php">Visualization</a></li>
+                            <li><a href="contact.php">Contact</a></li>
+                            <li><a href="login.php">Login</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -38,22 +35,24 @@
                     </div>
                     <div id="responsive-menu">
                         <ul id="primary-menu">
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="statistics.html">Statistics</a></li>
-                            <li><a href="comparasion.html">Comparison</a></li>
-                            <li><a href="visualization.html">Visualization</a></li>
-                            <li><a href="contact.html">Contact</a></li>
-                            <li><a href="login.html">Login</a></li>
+                            <li><a href="index.php">Home</a></li>
+                            <li><a href="statistics.php">Statistics</a></li>
+                            <li><a href="comparasion.php">Comparison</a></li>
+                            <li><a href="visualization.php">Visualization</a></li>
+                            <li><a href="contact.php">Contact</a></li>
+                            <li><a href="login.php">Login</a></li>
                         </ul>
                         <div id="menu-close-bar" class="menu-close-bar"> Close</div>
                     </div>
                 </div>
-                <div class="text-stuff">
-                    <div class="text-main">
-                        <p>Coming soon...[data is required in order to generate statistics]</p>
-                             <br>
-                    </div>
 
+                <div class="description">
+                    
+                </div>
+
+                <div class="results">
+                    <!-- aici trebuie sa apara chartul -->
+                    <iframe src="bar_chart.php" style="width: 100%; height: 600px; border: none;"></iframe>
                 </div>
                 
                 <div class="export">
@@ -67,16 +66,12 @@
 
             </div>
 
-
             <footer>
 
             </footer>
         </div>
-
     </main>
-
 
     <script type='text/javascript' src='main.js'></script>
 </body>
-
 </html>

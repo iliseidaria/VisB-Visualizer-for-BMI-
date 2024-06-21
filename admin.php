@@ -21,7 +21,7 @@
                 <div class="bara">
                     <nav class="navbar">
                         <ul>
-                            <li><a href="index.html">Logout</a></li>
+                            <li><a href="index.php">Logout</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -34,7 +34,7 @@
                     <div id="responsive-menu">
                         <ul id="primary-menu">
                             
-                            <li><a href="index.html">Logout</a></li>
+                            <li><a href="index.php">Logout</a></li>
                         </ul>
                         <div id="menu-close-bar" class="menu-close-bar"> Close</div>
                     </div>
