@@ -1,6 +1,7 @@
 <?php
 session_start();
-require_once __DIR__ . '/../Controller/AdminController.php';$adminController = new AdminController();
+require_once __DIR__ . '/../Controller/AdminController.php';
+$adminController = new AdminController();
 $adminController->Login();
 ?>
 <!DOCTYPE html>

@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VisB</title>
-    
+
 </head>
 
 <body>
@@ -21,7 +21,7 @@
                 <div class="bara">
                     <nav class="navbar">
                         <ul>
-                            <li><a href="index.php">Logout</a></li>
+                            <li><a href="/Test/">Logout</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -33,8 +33,8 @@
                     </div>
                     <div id="responsive-menu">
                         <ul id="primary-menu">
-                            
-                            <li><a href="index.php">Logout</a></li>
+
+                            <li><a href="/Test/">Logout</a></li>
                         </ul>
                         <div id="menu-close-bar" class="menu-close-bar"> Close</div>
                     </div>
@@ -42,14 +42,30 @@
                 <div class="text-stuff">
                     <div class="text-main">
                         <form action="procesare_date.php" method="post">
-                            <label for="date_field">Enter the data you want to edit [ using ' , ' to separate the information ]:</label>
+                            <input type="hidden" name="action" id="action" value="create">
+                            <label for="date_field">Enter the data you want to add:</label>
                             <input type="text" id="date_field" name="date_field" required><br>
-                            <input type="submit" value="Save">
+                            <input type="submit" value="Add">
+                        </form>
+
+                        <form action="procesare_date.php" method="post">
+                            <input type="hidden" name="action" id="action" value="update">
+                            <label for="id">Enter the ID of the data you want to edit:</label>
+                            <input type="text" id="id" name="id" required><br>
+                            <label for="date_field">Enter the new data:</label>
+                            <input type="text" id="date_field" name="date_field" required><br>
+                            <input type="submit" value="Edit">
+                        </form>
+
+                        <form action="procesare_date.php" method="post">
+                            <input type="hidden" name="action" id="action" value="delete">
+                            <label for="id">Enter the ID of the data you want to delete:</label>
+                            <input type="text" id="id" name="id" required><br>
                             <input type="submit" value="Delete">
                         </form>
                     </div>
                 </div>
-                
+
 
             </div>
 

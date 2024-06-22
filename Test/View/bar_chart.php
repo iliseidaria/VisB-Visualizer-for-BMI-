@@ -1,7 +1,6 @@
 <?php 
 include "../Model/DataBase.php"; 
 
-// Creăm o instanță a clasei Database
 $db = new Database();
 ?>
 
