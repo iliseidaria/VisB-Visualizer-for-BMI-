@@ -1,8 +1,11 @@
 <?php
-class HomeController {
-    public function index() {
-        
-        require_once '../View/comparison.php';
+
+class ComparisonController
+{
+    public function index()
+    {
+        require_once BASE_PATH . '/View/comparison.php';
     }
 }
+
 ?>

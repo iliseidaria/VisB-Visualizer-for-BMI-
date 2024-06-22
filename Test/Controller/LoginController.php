@@ -1,8 +1,8 @@
 <?php
-class HomeController {
+class LoginController {
     public function index() {
         
-        require_once '../View/login.php';
+        require_once BASE_PATH . '/View/login.php';
     }
 }
 ?>

@@ -1,8 +1,11 @@
 <?php
-class HomeController {
-    public function index() {
-        
-        require_once '../View/statistics.php';
+
+class StatisticsController
+{
+    public function index()
+    {
+        require_once BASE_PATH . '/View/statistics.php';
     }
 }
+
 ?>

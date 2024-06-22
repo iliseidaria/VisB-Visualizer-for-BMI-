@@ -1,8 +1,8 @@
 <?php
-class HomeController {
+class ContactController {
     public function index() {
         
-        require_once '../View/contact.php';
+        require_once BASE_PATH . '/View/Contact.php';
     }
 }
 ?>

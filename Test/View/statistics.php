@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VisB</title>
     
@@ -19,18 +19,17 @@
                 </div>
 
                 <div class="bara">
-                   <nav class="navbar">
-                     <ul>
-                       <li><a href="/Test/">Home</a></li>
-                       <li><a href="/Test/View/statistics.php">Statistics</a></li>
-                       <li><a href="/Test/View/comparison.php">Comparison</a></li>
-                       <li><a href="/Test/View/visualization.php">Visualization</a></li>
-                       <li><a href="/Test/View/contact.php">Contact</a></li>
-                       <li><a href="/Test/View/login.php">Login</a></li>
-                     </ul>
+                    <nav class="navbar">
+                        <ul>
+                            <li><a href="/Test/">Home</a></li>
+                            <li><a href="/Test/statistics">Statistics</a></li>
+                            <li><a href="/Test/comparison">Comparison</a></li>
+                            <li><a href="/Test/visualization">Visualization</a></li>
+                            <li><a href="/Test/contact">Contact</a></li>
+                            <li><a href="/Test/login">Login</a></li>
+                        </ul>
                     </nav>
-               </div>
-                
+                </div>
 
                 <!-- Responsive Menu -->
                 <div id="responsive-menu-container" class="responsive-menu-container">
@@ -39,12 +38,12 @@
                     </div>
                     <div id="responsive-menu">
                         <ul id="primary-menu">
-                        <li><a href="/Test/">Home</a></li>
-                       <li><a href="/Test/View/statistics.php">Statistics</a></li>
-                       <li><a href="/Test/View/comparison.php">Comparison</a></li>
-                       <li><a href="/Test/View/visualization.php">Visualization</a></li>
-                       <li><a href="/Test/View/contact.php">Contact</a></li>
-                       <li><a href="/Test/View/login.php">Login</a></li>
+                            <li><a href="/Test/">Home</a></li>
+                            <li><a href="/Test/statistics">Statistics</a></li>
+                            <li><a href="/Test/comparison">Comparison</a></li>
+                            <li><a href="/Test/visualization">Visualization</a></li>
+                            <li><a href="/Test/contact">Contact</a></li>
+                            <li><a href="/Test/login">Login</a></li>
                         </ul>
                         <div id="menu-close-bar" class="menu-close-bar"> Close</div>
                     </div>

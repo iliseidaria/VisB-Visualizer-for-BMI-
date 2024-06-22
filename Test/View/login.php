@@ -1,7 +1,6 @@
 <?php
 session_start();
-require_once '../Controller/AdminController.php';
-$adminController = new AdminController();
+require_once __DIR__ . '/../Controller/AdminController.php';$adminController = new AdminController();
 $adminController->Login();
 ?>
 <!DOCTYPE html>
@@ -9,7 +8,7 @@ $adminController->Login();
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VisB</title>
 
@@ -27,12 +26,12 @@ $adminController->Login();
                 <div class="bara">
                     <nav class="navbar">
                         <ul>
-                            <li><a href="index.php">Home</a></li>
-                            <li><a href="statistics.php">Statistics</a></li>
-                            <li><a href="comparasion.php">Comparison</a></li>
-                            <li><a href="visualization.php">Visualization</a></li>
-                            <li><a href="contact.php">Contact</a></li>
-                            <li><a href="login.php">Login</a></li>
+                            <li><a href="/Test/">Home</a></li>
+                            <li><a href="/Test/statistics">Statistics</a></li>
+                            <li><a href="/Test/comparison">Comparison</a></li>
+                            <li><a href="/Test/visualization">Visualization</a></li>
+                            <li><a href="/Test/contact">Contact</a></li>
+                            <li><a href="/Test/login">Login</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -44,12 +43,12 @@ $adminController->Login();
                     </div>
                     <div id="responsive-menu">
                         <ul id="primary-menu">
-                            <li><a href="index.php">Home</a></li>
-                            <li><a href="statistics.php">Statistics</a></li>
-                            <li><a href="comparasion.php">Comparison</a></li>
-                            <li><a href="visualization.php">Visualization</a></li>
-                            <li><a href="contact.php">Contact</a></li>
-                            <li><a href="login.php">Login</a></li>
+                            <li><a href="/Test/">Home</a></li>
+                            <li><a href="/Test/statistics">Statistics</a></li>
+                            <li><a href="/Test/comparison">Comparison</a></li>
+                            <li><a href="/Test/visualization">Visualization</a></li>
+                            <li><a href="/Test/contact">Contact</a></li>
+                            <li><a href="/Test/login">Login</a></li>
                         </ul>
                         <div id="menu-close-bar" class="menu-close-bar"> Close</div>
                     </div>
@@ -67,11 +66,12 @@ $adminController->Login();
                         <h2>Admin Login</h2>
                         <?php
                         if (isset($_SESSION['error'])) {
-                            echo '<p class="error">' . $_SESSION['error'] . '</p>';
-                            unset($_SESSION['error']); // sterge mesajul de eroare
+                            echo '<p style="color: red; font-size: 20px;">' . $_SESSION['error'] . '</p>';
+                            unset($_SESSION['error']); // Remove error message after displaying it
                         }
                         ?>
-                        <form action="/Test/View/login.php" method="POST">
+
+                        <form action="/Test/login" method="POST">
                             <label for="username">Username:</label>
                             <input type="text" id="username" name="username" required>
                             <label for="password">Password:</label>

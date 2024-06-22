@@ -3,8 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../style.css">
-    <link rel="stylesheet" href="../style-comparison.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style-comparison.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VisB</title>
 
@@ -22,12 +22,12 @@
                 <div class="bara">
                     <nav class="navbar">
                         <ul>
-                            <li><a href="index.php">Home</a></li>
-                            <li><a href="statistics.php">Statistics</a></li>
-                            <li><a href="comparasion.php">Comparison</a></li>
-                            <li><a href="visualization.php">Visualization</a></li>
-                            <li><a href="contact.php">Contact</a></li>
-                            <li><a href="login.php">Login</a></li>
+                            <li><a href="/Test/">Home</a></li>
+                            <li><a href="/Test/statistics">Statistics</a></li>
+                            <li><a href="/Test/comparison">Comparison</a></li>
+                            <li><a href="/Test/visualization">Visualization</a></li>
+                            <li><a href="/Test/contact">Contact</a></li>
+                            <li><a href="/Test/login">Login</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -39,12 +39,12 @@
                     </div>
                     <div id="responsive-menu">
                         <ul id="primary-menu">
-                            <li><a href="index.php">Home</a></li>
-                            <li><a href="statistics.php">Statistics</a></li>
-                            <li><a href="comparasion.php">Comparison</a></li>
-                            <li><a href="visualization.php">Visualization</a></li>
-                            <li><a href="contact.php">Contact</a></li>
-                            <li><a href="login.php">Login</a></li>
+                            <li><a href="/Test/">Home</a></li>
+                            <li><a href="/Test/statistics">Statistics</a></li>
+                            <li><a href="/Test/comparison">Comparison</a></li>
+                            <li><a href="/Test/visualization">Visualization</a></li>
+                            <li><a href="/Test/contact">Contact</a></li>
+                            <li><a href="/Test/login">Login</a></li>
                         </ul>
                         <div id="menu-close-bar" class="menu-close-bar"> Close</div>
                     </div>
@@ -137,7 +137,7 @@
                 <div class="results">
                     <?php
                     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                        require_once "../Model/CountryModel.php";
+                        require_once __DIR__ . '/../Model/CountryModel.php';
 
                         $country1 = $_POST['option1'];
                         $country2 = $_POST['option2'];

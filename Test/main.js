@@ -82,4 +82,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Initialize the view to show the first section by default
   loadSection('section1v1.php');
+
+  
 });
+
+
