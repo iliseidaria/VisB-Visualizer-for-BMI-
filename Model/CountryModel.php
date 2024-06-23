@@ -41,28 +41,6 @@ class CountryModel extends Database
     return $this->select($sql);
 }
 
-/*
-
-public function getMaxValue()
-    {
-        $sql = "SELECT year, percentage 
-                FROM yearlyData 
-                ORDER BY percentage DESC 
-                LIMIT 10";
-        return $this->select($sql);
-    }
-
-public function getMinValues()
-{
-    $sql = "SELECT year, percentage 
-            FROM yearlyData 
-            WHERE percentage IS NOT NULL
-            ORDER BY percentage ASC
-            LIMIT 10";
-    return $this->select($sql);
-}
-*/
-
     public function getSameValue()
 {
     $sql = "SELECT yd1.year, yd1.percentage, c1.name

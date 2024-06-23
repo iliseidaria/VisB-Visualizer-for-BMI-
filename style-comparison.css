@@ -46,7 +46,7 @@
 }
 
 .button-container button.selected {
-    background-color: #007BFF; /* culoarea pentru butonul selectat */
+    background-color: #007BFF; 
     color: white;
 }
 

@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="style-comparison.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VisB</title>
-
 </head>
 
 <body>
@@ -16,7 +15,6 @@
             <div class="container">
                 <div class="header">
                     <p class="titlu">Visualizer for BMI</p>
-
                 </div>
 
                 <div class="bara">
@@ -49,10 +47,10 @@
                         <div id="menu-close-bar" class="menu-close-bar"> Close</div>
                     </div>
                 </div>
-                
+
                 <div class="text-stuff">
                     <div class="button-bar">
-                    <form action="" method="post">
+                        <form action="" method="post">
                             <select name="option1">
                                 <option value="none">Country 1</option>
                                 <option value="Austria">Austria</option>
@@ -232,7 +230,7 @@
         </div>
     </main>
 
-    <script type='text/javascript'>
+    <script type="text/javascript">
         function showSection(sectionId) {
             // Ascunde toate secțiunile
             const sections = document.querySelectorAll('.result-section');
@@ -264,6 +262,31 @@
         // Inițializează pagina pentru a afișa doar secțiunea de comparare la început
         window.addEventListener('load', function() {
             showSection('comparisonResults');
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuCloseButton = document.getElementById('menu-close-bar');
+            if (menuCloseButton) {
+                menuCloseButton.addEventListener('click', function() {
+                    document.getElementById('responsive-menu').style.display = 'none';
+                });
+            }
+
+            const menuBarButton = document.getElementById('responsive-menu-bar');
+            if (menuBarButton) {
+                menuBarButton.addEventListener('click', function() {
+                    toggleResponsiveMenu();
+                });
+            }
+
+            function toggleResponsiveMenu() {
+                const responsiveMenu = document.getElementById('responsive-menu');
+                if (responsiveMenu.style.display === 'block') {
+                    responsiveMenu.style.display = 'block';
+                } else {
+                    responsiveMenu.style.display = 'block';
+                }
+            }
         });
     </script>
 </body>

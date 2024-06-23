@@ -1,88 +1,79 @@
-<?php 
-include "Model/DataBase.php"; 
-
-// Creăm o instanță a clasei Database
-$db = new Database();
-?>
-
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Bar Chart</title>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            background-color: #f4f4f9;
-            color: #333;
-        }
+  <title>Bar Chart</title>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+    google.charts.load('current', {'packages':['bar']});
+    google.charts.setOnLoadCallback(drawChart);
 
-        #barChart {
-            width: 100%;
-            height: 500px;
-            margin: 20px auto;
-            background-color: #fff;
-            border: 1px solid #ccc;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    function drawChart() {
+      var data = google.visualization.arrayToDataTable([
+        ['Country', 'Obesity Percentage'],
+        <?php
+          include 'Model/Database.php';
+
+          $db = new Database();     
+
+          // preluam parametrii din query string (GET)
+          $year = isset($_GET['year']) ? intval($_GET['year']) : 2008;
+          $bmi_category = isset($_GET['bmi_category']) ? $_GET['bmi_category'] : 'Overweight';
+
+          $table = '';
+          switch ($bmi_category) {
+              case 'Overweight':
+                  $table = 'yearlydata';
+                  break;
+              case 'Pre-obese':
+                  $table = 'yearly_data_pre_obese';
+                  break;
+              case 'Obese':
+                  $table = 'yearly_data_obese';
+                  break;
+              default:
+                  $table = 'yearlydata';
+          }
+
+          $query = "SELECT c.name AS country_name, y.percentage AS obesity_percentage 
+                    FROM $table y 
+                    JOIN country c ON y.country_id = c.id
+                    WHERE y.year = $year;";
+          $result = $db->select($query);
+
+          if ($result) {
+            $rows = [];
+            foreach ($result as $row) {
+                $percentage = isset($row['obesity_percentage']) ? $row['obesity_percentage'] : 0; // tratam valorile null
+                $rows[] = "['" . $row['country_name'] . "', " . $percentage . "]";
+            }
+            echo implode(",", $rows);
+          } else {
+            echo "['No data', 0]";
+          }
+        ?>
+      ]);
+
+      var options = {
+        chart: {
+          title: 'Obesity Rate by Body Mass Index (BMI)',
+          subtitle: 'Year: <?php echo $year; ?>, Category: <?php echo $bmi_category; ?>',
+        },
+        bars: 'horizontal',
+        legend: { position: 'top', maxLines: 2 },
+        colors: ['#3366CC'],
+        bar: { groupWidth: '85%' }, //spatiu intre bare
+        hAxis: {
+          ticks: [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100], // marcaj pt Ox (intervale de 10)
         }
-    </style>
+      };
+
+      var chart = new google.charts.Bar(document.getElementById('barchart_material'));
+
+      chart.draw(data, google.charts.Bar.convertOptions(options));
+    }
+  </script>
 </head>
 <body>
-    <h1>Yearly Data Bar Chart</h1>
-    <canvas id="barChart"></canvas>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var ctx = document.getElementById('barChart').getContext('2d');
-            var barChartData = {
-                labels: [],
-                datasets: [{
-                    label: 'Percentage',
-                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                    borderColor: 'rgba(75, 192, 192, 1)',
-                    borderWidth: 1,
-                    data: []
-                }]
-            };
-
-            <?php
-            // Executăm interogarea
-            $query = "SELECT * FROM yearlyData";
-            $results = $db->select($query);
-
-            if ($results) {
-                foreach ($results as $row) {
-                    $id = $row['countr_id'];
-                    $percentage = $row['percentage'];
-                    $year = $row['year'];
-                    echo "barChartData.labels.push('$id ($year)');";
-                    echo "barChartData.datasets[0].data.push($percentage);";
-                }
-            }
-            ?>
-
-            var barChart = new Chart(ctx, {
-                type: 'bar',
-                data: barChartData,
-                options: {
-                    responsive: true,
-                    title: {
-                        display: true,
-                        text: 'Yearly Data'
-                    },
-                    scales: {
-                        x: {
-                            beginAtZero: true
-                        },
-                        y: {
-                            beginAtZero: true
-                        }
-                    }
-                }
-            });
-        });
-    </script>
+  <div id="barchart_material" style="width: 100%; height: 800px;"></div>
 </body>
 </html>

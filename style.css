@@ -58,6 +58,7 @@ body {
 }
 
 /*responsive menu*/
+
 .responsive-menu-container {
     display:none;
     width: 100%;
@@ -65,11 +66,12 @@ body {
 
 .responsive-menu-bar {
     display: block;
+    text-align: center;
     width: 100%;
     color: #444;
     cursor: pointer;
     background: linear-gradient(to bottom, #F4F4F2, #EDEDEB);
-    padding: 5px 8px;
+    padding: 5px 8px; 
 }
 
 .responsive-menu-bar:hover {
@@ -107,6 +109,9 @@ body {
     display: flex;
     justify-content: center;
     cursor: pointer;
+    margin-top: 10px;
+    text-align: right;
+    color: #333;
 }
 
 .menu-close-bar:hover {
@@ -140,7 +145,6 @@ body {
 }
 
 /*menu-navbar*/
-
 .bara {
     width: 100%;
     height: auto;
@@ -167,7 +171,7 @@ body {
     text-align: center;
     font-size: 27px;
     transition: background-color 0.3s, color 0.3s;
-    /* margin-right: 10px; */
+    
 }
 
 .navbar a:hover {
@@ -183,7 +187,7 @@ body {
 @media (max-width: 1233px) {
     li>a {
         font-size: 15px;
-        /* display: inline-block; */
+        
     }
 }
 
@@ -210,7 +214,6 @@ footer {
 }
 
 /*index.html*/
-
 .description1 {
     padding-left: 15px;
     padding-right: 15px;
@@ -511,25 +514,38 @@ input[type="submit"]:hover {
     width: 30%;
 }
 
-/*contact.html*/
-.programatori{
+
+.programatori {
     display: flex;
-    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: space-around;
-    padding: 50px;
+    padding: 10px; 
 }
 
-.contact-text, .contact-details{
+.contact-text, .contact-details {
     display: flex;
-    margin:0px;
-    padding: 10px;
-    margin-left: 10px;
+    justify-content: center;
+    padding: 20px;
+    margin: 0;
 }
 
-.persoana{
+.persoana {
     border-top: 2.5px solid #000000;
     border-bottom: 2.5px solid #000000;
     padding: 20px;
+    flex-basis: calc(50% - 40px); 
+    margin-bottom: 20px; 
+}
+
+@media only screen and (max-width: 768px) {
+    .programatori {
+        flex-direction: column; 
+        align-items: center; 
+    }
+
+    .persoana {
+        flex-basis: calc(100% - 40px); 
+    }
 }
 
 /*index.php*/

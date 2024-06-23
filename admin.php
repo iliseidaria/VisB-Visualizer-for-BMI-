@@ -49,19 +49,14 @@
                         </form>
                     </div>
                 </div>
-                
-
             </div>
-
 
             <footer>
 
             </footer>
+
         </div>
-
     </main>
-
-
     <script type='text/javascript' src='main.js'></script>
 </body>
 
