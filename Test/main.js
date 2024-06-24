@@ -80,11 +80,5 @@ document.addEventListener('DOMContentLoaded', function() {
       buttonSameValue.classList.add('selected');
   });
 
-  // Initialize the view to show the first section by default
   loadSection('section1v1.php');
-
-  
 });
-
-
-

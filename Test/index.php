@@ -17,6 +17,8 @@ $routes = [
     '/Test/modify_Data' => 'ModifyDataController@index',
     '/Test/admin_home' => 'AdminHomeController@index',
     '/Test/View/bar_chart.php' => 'bar_chart',
+    '/Test/View/geo_chart.php' => 'geo_chart',
+    '/Test/View/line_chart.php' => 'line_chart',
 ];
 
 if (array_key_exists($route, $routes)) {
