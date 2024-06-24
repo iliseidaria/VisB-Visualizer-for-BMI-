@@ -125,13 +125,6 @@
                     </div>
                 </div>
 
-                <div class="button-container">
-                    <button id="comparisonButton">1v1 Comparison</button>
-                    <button id="maxValueButton">Max Value</button>
-                    <button id="minValueButton">Min Value</button>
-                    <button id="sameValueButton">Same Value</button>
-                </div>
-
                 <div class="results">
                     <?php
                     if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -172,42 +165,6 @@
                             echo "Please select both countries and a year.";
                             echo "</div>";
                         }
-
-                        // Max Value Section
-                        echo "<div id='maxValueResults' class='result-section'>";
-                        $maxValue = $countryModel->getMaxValue();
-                        if ($maxValue) {
-                            echo "<h2>Max Value</h2>"; 
-                            echo "<p>Country: " . htmlspecialchars($maxValue[0]['name']) . ", Year: " . htmlspecialchars($maxValue[0]['year']) . ", Maximum value: " . htmlspecialchars($maxValue[0]['percentage']) . "</p>";
-                        } else {
-                            echo "<p>Nu s-au găsit date pentru valoarea maximă.</p>";
-                        }
-                        echo "</div>";
-
-                        // Min Value Section
-                        echo "<div id='minValueResults' class='result-section'>";
-                        $minValue = $countryModel->getMinValue();
-                        if ($minValue) {
-                            echo "<h2>Min Value</h2>";
-                            echo "<p>Country: " . htmlspecialchars($minValue[0]['name']) . ", Year: " . htmlspecialchars($minValue[0]['year']) . ", Minimum value: " . htmlspecialchars($minValue[0]['percentage']) . "</p>";
-                        } else {
-                            echo "<p>Nu s-au găsit date pentru valoarea minimă.</p>";
-                        }
-                        echo "</div>";
-
-                        // Same Value Section
-                        echo "<div id='sameValueResults' class='result-section'>";
-                        $sameValue = $countryModel->getSameValue();
-                        if ($sameValue) {
-                            echo "<h2>Same Value</h2>";
-                            foreach ($sameValue as $value) {
-                                echo "<p>Year: " . htmlspecialchars($value['year']) . " -- Value: " . htmlspecialchars($value['percentage']) . "</p>";
-                                echo "\n";
-                            }
-                        } else {
-                            echo "<p>Nu s-au găsit date pentru aceleași valori.</p>";
-                        }
-                        echo "</div>";
                     }
                     ?>
                 </div>
@@ -230,65 +187,7 @@
         </div>
     </main>
 
-    <script type="text/javascript">
-        function showSection(sectionId) {
-            // Ascunde toate secțiunile
-            const sections = document.querySelectorAll('.result-section');
-            sections.forEach(section => section.style.display = 'none');
-
-            // Afișează secțiunea selectată
-            const selectedSection = document.getElementById(sectionId);
-            if (selectedSection) {
-                selectedSection.style.display = 'block';
-            }
-        }
-
-        document.getElementById('comparisonButton').addEventListener('click', function() {
-            showSection('comparisonResults');
-        });
-
-        document.getElementById('maxValueButton').addEventListener('click', function() {
-            showSection('maxValueResults');
-        });
-
-        document.getElementById('minValueButton').addEventListener('click', function() {
-            showSection('minValueResults');
-        });
-
-        document.getElementById('sameValueButton').addEventListener('click', function() {
-            showSection('sameValueResults');
-        });
-
-        // Inițializează pagina pentru a afișa doar secțiunea de comparare la început
-        window.addEventListener('load', function() {
-            showSection('comparisonResults');
-        });
-
-        document.addEventListener('DOMContentLoaded', function() {
-            const menuCloseButton = document.getElementById('menu-close-bar');
-            if (menuCloseButton) {
-                menuCloseButton.addEventListener('click', function() {
-                    document.getElementById('responsive-menu').style.display = 'none';
-                });
-            }
-
-            const menuBarButton = document.getElementById('responsive-menu-bar');
-            if (menuBarButton) {
-                menuBarButton.addEventListener('click', function() {
-                    toggleResponsiveMenu();
-                });
-            }
-
-            function toggleResponsiveMenu() {
-                const responsiveMenu = document.getElementById('responsive-menu');
-                if (responsiveMenu.style.display === 'block') {
-                    responsiveMenu.style.display = 'block';
-                } else {
-                    responsiveMenu.style.display = 'block';
-                }
-            }
-        });
-    </script>
+    <script type='text/javascript' src='main.js'></script>
 </body>
 
 </html>
