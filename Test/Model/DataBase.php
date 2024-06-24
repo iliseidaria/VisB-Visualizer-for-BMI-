@@ -37,5 +37,19 @@ class Database {
         }
         return false;
     }
+    public function insert($sql, $params) {
+        $stmt = $this->connection->prepare($sql);
+        $stmt->execute($params);
+    }
+
+    public function update($sql, $params) {
+        $stmt = $this->connection->prepare($sql);
+        $stmt->execute($params);
+    }
+
+    public function delete($sql, $params) {
+        $stmt = $this->connection->prepare($sql);
+        $stmt->execute($params);
+    }
 }
 ?>

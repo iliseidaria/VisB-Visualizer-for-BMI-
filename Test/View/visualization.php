@@ -52,7 +52,7 @@
 
                 <div class="results">
                     <!-- aici trebuie sa apara chartul -->
-                    <!-- <iframe src="bar_chart.php" style="width: 100%; height: 600px; border: none;"></iframe> -->
+                    <iframe src="/Test/View/bar_chart.php" style="width: 100%; height: 600px; border: none;"></iframe>
 
                     <!-- Grija marea aici, ca te trimite in pagina home router-ul -->
                 </div>

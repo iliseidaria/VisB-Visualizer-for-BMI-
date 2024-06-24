@@ -1,12 +1,19 @@
+<?php
+require_once __DIR__ . '/../Model/CountryModel.php';
+
+$countryModel = new CountryModel();
+$data = $countryModel->getAllData();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style-comparison.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VisB</title>
-
 </head>
 
 <body>
@@ -15,9 +22,7 @@
             <div class="container">
                 <div class="header">
                     <p class="titlu">Visualizer for BMI</p>
-
                 </div>
-
                 <div class="bara">
                     <nav class="navbar">
                         <ul>
@@ -28,8 +33,6 @@
                         </ul>
                     </nav>
                 </div>
-
-                <!-- Responsive Menu -->
                 <div id="responsive-menu-container" class="responsive-menu-container">
                     <div id="responsive-menu-bar" class="responsive-menu-bar">
                         <span>Menu</span>
@@ -45,38 +48,38 @@
                     </div>
                 </div>
 
-                <div class="partition1">
-                    <p class="description1">Welcome to the Admin Page. Here, you have the ability to manage and oversee
-                        all the data related to the Body Mass Index (BMI). This page provides you with powerful tools to
-                        visualize and modify the data as needed.</p>
-                    <p class="description2">By clicking on the 'Visualize Data' button, you can view the entire
-                        database. This feature allows you to monitor the data in real-time and make informed decisions
-                        based on the latest information. The data is presented in an easy-to-understand format, making
-                        it simple to interpret and analyze.</p>
-                    <p class="description2">The 'Modify Data' button allows you to perform CRUD (Create, Read, Update,
-                        Delete) operations on the data. This feature gives you full control over the data, enabling you
-                        to add new entries, update existing ones, or remove any unnecessary or outdated information.
-                        Please handle these operations with care as they directly impact the database.</p>
-                    <p class="description2">If you arrived on this page by accident, or if you have been allowed access
-                        by mistake, please contact us
-                        immediately at <b>danca.gabriel@outlook.com</b> or <b>iliseidaria@yahoo.com</b>. We take data
-                        security and privacy very seriously and will investigate any unauthorized access to our systems.
-                    </p>
-                    </p>
+
+                <div class="text-stuff results">
+                    <div class="text-main">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Country</th>
+                                    <th>Year</th>
+                                    <th>Percentage</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach ($data as $row): ?>
+                                    <tr>
+                                        <td><?php echo htmlspecialchars($row['id']); ?></td>
+                                        <td><?php echo htmlspecialchars($row['name']); ?></td>
+                                        <td><?php echo htmlspecialchars($row['year']); ?></td>
+                                        <td class="<?php echo isset($row['percentage']) ? '' : 'no-data'; ?>">
+                                            <?php echo isset($row['percentage']) ? htmlspecialchars($row['percentage']) : 'Missing data'; ?>
+                                        </td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
-
-
             </div>
-
-
             <footer>
-
             </footer>
         </div>
-
     </main>
-
-
     <script type='text/javascript' src='main.js'></script>
 </body>
 

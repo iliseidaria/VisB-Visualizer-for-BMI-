@@ -63,6 +63,28 @@ public function getMinValues()
 }
 */
 
+public function createYearlyData($country_id, $year, $percentage) {
+    $sql = "INSERT INTO yearlyData (country_id, year, percentage) VALUES (?, ?, ?)";
+    $this->insert($sql, [$country_id, $year, $percentage]);
+}
+
+public function updateYearlyData($country_id, $year, $percentage) {
+    $sql = "UPDATE yearlyData SET percentage = ? WHERE country_id = ? AND year = ?";
+    $this->update($sql, [$percentage, $country_id, $year]);
+}
+
+public function deleteYearlyData($country_id, $year) {
+    $sql = "DELETE FROM yearlyData WHERE country_id = ? AND year = ?";
+    $this->delete($sql, [$country_id, $year]);
+}
+public function getAllData()
+    {
+        $sql = "SELECT c.id, c.name, y.year, y.percentage 
+                FROM yearlyData y 
+                JOIN country c ON y.country_id = c.id";
+        return $this->select($sql);
+    }
+
     public function getSameValue()
 {
     $sql = "SELECT yd1.year, yd1.percentage, c1.name

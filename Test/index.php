@@ -13,6 +13,10 @@ $routes = [
     '/Test/contact' => 'ContactController@index',
     '/Test/login' => 'LoginController@index',
     '/Test/admin' => 'AdminController@index',
+    '/Test/visualize_Data' => 'DataVisualizationController@index',
+    '/Test/modify_Data' => 'ModifyDataController@index',
+    '/Test/admin_home' => 'AdminHomeController@index',
+    '/Test/View/bar_chart.php' => 'bar_chart',
 ];
 
 if (array_key_exists($route, $routes)) {
