@@ -93,5 +93,27 @@ class CountryModel extends Database
         return $this->select($sql);
     }
 
+    public function getAllData()
+    {
+        $sql = "SELECT c.id, c.name, y.year, y.percentage 
+                FROM yearlyData y 
+                JOIN country c ON y.country_id = c.id";
+        return $this->select($sql);
+    }
+    public function getObeseData()
+    {
+        $sql = "SELECT c.id, c.name, y.year, y.percentage 
+                FROM yearly_data_obese y 
+                JOIN country c ON y.country_id = c.id";
+        return $this->select($sql);
+    }
+    public function getPreObeseData()
+    {
+        $sql = "SELECT c.id, c.name, y.year, y.percentage 
+                FROM yearly_data_pre_obese y 
+                JOIN country c ON y.country_id = c.id";
+        return $this->select($sql);
+    }
+
 }
 ?>

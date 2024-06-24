@@ -4,7 +4,7 @@ class Database {
 
     public function __construct() {//constructorul clasei 
         try {
-            $this->connection = new mysqli('localhost', 'root', 'password', 'eurostat_data'); //creeaza o noua conexiune cu BD
+            $this->connection = new mysqli('localhost', 'root', '', 'eurostat_data'); //creeaza o noua conexiune cu BD
             if (mysqli_connect_errno()) {
                 throw new Exception("Could not connect to database.");
             }

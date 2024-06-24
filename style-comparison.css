@@ -1,0 +1,80 @@
+.results {
+    margin: 20px 0;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.results h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.results table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.results table, .results th, .results td {
+    border: 1px solid #ddd;
+}
+
+.results th, .results td {
+    padding: 12px;
+    text-align: left;
+}
+
+.results th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+
+.results tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.results tr:hover {
+    background-color: #f1f1f1;
+}
+
+.results .no-data {
+    font-size: 16px;
+    color: #888;
+}
+
+.button-container button.selected {
+    background-color: #007BFF; /* culoarea pentru butonul selectat */
+    color: white;
+}
+
+.button-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content:space-around;
+}
+
+.button-container button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button-container button:hover {
+    background-color: #0056b3;
+}
+
+.button-container button.selected {
+    background-color: #0056b3;
+}
+
+.button-container button:not(:last-child) {
+    margin-right: 10px;
+}

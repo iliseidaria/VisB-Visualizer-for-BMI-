@@ -1,0 +1,153 @@
+.select-stats {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    border-bottom: solid;
+}
+
+.select-button {
+    display: inline-block; 
+}
+
+.select-button form {
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+}
+
+.select-button select {
+    width: 80%;
+    padding: 10px; 
+    border-radius: 5px; 
+    background-color: #75737c; 
+    color: #fff; 
+    font-size: 16px; 
+    cursor: pointer;
+}
+
+.select-button .submit {
+    margin-left: 15px; 
+    padding: 10px 20px; 
+    background-color: #75737c; 
+    border-radius: 5px; 
+    color: #fff; 
+    font-size: 16px; 
+    cursor: pointer; 
+    transition: background-color 0.3s;
+}
+
+.select-button .submit:hover {
+    background-color: #a7a7a7; 
+}
+
+.results {
+    margin: 20px 0;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.results h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.results table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.results table, .results th, .results td {
+    border: 1px solid #ddd;
+}
+
+.results th, .results td {
+    padding: 12px;
+    text-align: left;
+}
+
+.results th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+
+.results tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.results tr:hover {
+    background-color: #f1f1f1;
+}
+
+.results .no-data {
+    font-size: 16px;
+    color: #888;
+}
+
+.button-container button.selected {
+    background-color: #007BFF; 
+    color: white;
+}
+
+.button-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content:space-around;
+}
+
+.button-container button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button-container button:hover {
+    background-color: #0056b3;
+}
+
+.button-container button.selected {
+    background-color: #0056b3;
+}
+
+.button-container button:not(:last-child) {
+    margin-right: 10px;
+}
+
+
+
+
+.no-data-message {
+    padding: 50px; 
+    font-size: 40px;
+    background-color: #f2f2f2; 
+    color: #646368;
+    border: 1px solid #75737c; 
+    border-radius: 7px; 
+    text-align: center; 
+    margin-top: 10px; 
+}
+
+/*
+
+.no-data-message {
+font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+  font-size: 40px;
+  padding: 20px;
+  text-align: center;
+  text-transform: uppercase;
+  text-rendering: optimizeLegibility;
+  color: #333; 
+  background-color: #f2f2f2;
+  letter-spacing: 0.1em; 
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); 
+}
+  
+*/
