@@ -44,10 +44,16 @@
 
                 <div class="text-stuff">
                     <div class="text-main">
-                        <form id="create-form" method="POST" action="ModifyDataController.php?action=create">
+                        <form method="POST">
                             <input type="hidden" name="action" value="create">
+                            <label for="table-select">Select the table:</label>
+                            <select id="table-select" name="table" required>
+                                <option value="yearlydata">Overweight Data</option>
+                                <option value="yearly_data_obese">Obese Data</option>
+                                <option value="yearly_data_pre_obese">Pre Obese Data</option>
+                            </select><br>
                             <label for="id_country-create">Select the ID of the country:</label>
-                            <select id="id_country-create" name="id_country" required>
+                            <select id="id_country-create" name="country_id" required>
                                 <?php for ($i = 1; $i <= 35; $i++): ?>
                                     <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
                                 <?php endfor; ?>
@@ -61,12 +67,21 @@
                             <input type="submit" value="Add">
                             <div id="create-result"></div>
                         </form>
+                        <?php if (isset($create_message)): ?>
+                            <p><?php echo $create_message; ?></p>
+                        <?php endif; ?>
                     </div>
                     <div class="text-main">
-                        <form id="update-form" method="POST" action="ModifyDataController.php?action=update">
+                        <form method="POST">
                             <input type="hidden" name="action" value="update">
+                            <label for="table-select">Select the table:</label>
+                            <select id="table-select" name="table" required>
+                                <option value="yearlydata">Overweight Data</option>
+                                <option value="yearly_data_obese">Obese Data</option>
+                                <option value="yearly_data_pre_obese">Pre Obese Data</option>
+                            </select><br>
                             <label for="id_country-update">Select the ID of the country:</label>
-                            <select id="id_country-update" name="id_country" required>
+                            <select id="id_country-update" name="country_id" required>
                                 <?php for ($i = 1; $i <= 35; $i++): ?>
                                     <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
                                 <?php endfor; ?>
@@ -80,17 +95,30 @@
                             <input type="submit" value="Edit">
                             <div id="update-result"></div>
                         </form>
-
-                        <form id="delete-form" method="POST" action="ModifyDataController.php?action=delete">
+                        <?php if (isset($update_message)): ?>
+                            <p><?php echo $update_message; ?></p>
+                        <?php endif; ?>
+                    </div>
+                    <div class="text-main">
+                        <form method="POST">
                             <input type="hidden" name="action" value="delete">
+                            <label for="table-select">Select the table:</label>
+                            <select id="table-select" name="table" required>
+                                <option value="yearlydata">Overweight Data</option>
+                                <option value="yearly_data_obese">Obese Data</option>
+                                <option value="yearly_data_pre_obese">Pre Obese Data</option>
+                            </select><br>
                             <label for="id_country-delete">Enter the ID of the country you want to delete:</label>
-                            <input type="text" id="id_country-delete" name="id_country" required><br>
+                            <input type="text" id="id_country-delete" name="country_id" required><br>
                             <label for="year-delete">Enter the year:</label>
                             <input type="number" id="year-delete" name="year" required><br>
                             <span id="year-error-delete"></span><br>
                             <input type="submit" value="Delete">
                             <div id="delete-result"></div>
                         </form>
+                        <?php if (isset($delete_message)): ?>
+                            <p><?php echo $delete_message; ?></p>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>
@@ -100,61 +128,52 @@
         </div>
     </main>
 
+    <?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $action = $_POST['action'];
+        $country_id = $_POST['country_id'];
+        $year = $_POST['year'];
+        $percentage = $_POST['percentage'];
+        $table = $_POST['table'];
+
+        $servername = "localhost";
+        $username = "root";
+        $password = "";
+        $dbname = "eurostat_data";
+
+        $conn = new mysqli($servername, $username, $password, $dbname);
+
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
+
+        if ($action == 'create') {
+            $sql = "INSERT INTO $table (country_id, year, percentage)
+                    VALUES ('$country_id', '$year', '$percentage')";
+            if ($conn->query($sql) === TRUE) {
+                $create_message = "Record added successfully";
+            } else {
+                $create_message = "Error adding record: " . $conn->error;
+            }
+        } elseif ($action == 'update') {
+            $sql = "UPDATE $table SET percentage='$percentage' WHERE country_id='$country_id' AND year='$year'";
+            if ($conn->query($sql) === TRUE) {
+                $update_message = "Record updated successfully";
+            } else {
+                $update_message = "Error updating record: " . $conn->error;
+            }
+        } elseif ($action == 'delete') {
+            $sql = "DELETE FROM $table WHERE country_id='$country_id' AND year='$year'";
+            if ($conn->query($sql) === TRUE) {
+                $delete_message = "Record deleted successfully";
+            } else {
+                $delete_message = "Error deleting record: " . $conn->error;
+            }
+        }
+
+        $conn->close();
+    }
+    ?>
 </body>
 
 </html>
-
-<?php
-// Incepe logica PHP pentru baza de date
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    require_once __DIR__ . '/../Model/DataBase.php';
-    require_once __DIR__ . '/../Model/CountryModel.php';
-
-    $db = new Database();
-    $model = new CountryModel();
-
-    switch ($_POST['action']) {
-        case 'create':
-            $country_id = $_POST['id_country'];
-            $year = $_POST['year'];
-            $percentage = $_POST['percentage'];
-            $sql = "INSERT INTO yearlyData (country_id, year, percentage) VALUES (?, ?, ?)";
-            $params = [$country_id, $year, $percentage];
-            $stmt = $db->prepare($sql);
-            if ($stmt->execute($params)) {
-                echo "Data successfully added!";
-            } else {
-                echo "Failed to add data. Please try again.";
-            }
-            break;
-        case 'update':
-            $country_id = $_POST['id_country'];
-            $year = $_POST['year'];
-            $percentage = $_POST['percentage'];
-            $sql = "UPDATE yearlyData SET percentage = ? WHERE country_id = ? AND year = ?";
-            $params = [$percentage, $country_id, $year];
-            $stmt = $db->prepare($sql);
-            if ($stmt->execute($params)) {
-                echo "Data successfully updated!";
-            } else {
-                echo "Failed to update data. Please try again.";
-            }
-            break;
-        case 'delete':
-            $country_id = $_POST['id_country'];
-            $year = $_POST['year'];
-            $sql = "DELETE FROM yearlyData WHERE country_id = ? AND year = ?";
-            $params = [$country_id, $year];
-            $stmt = $db->prepare($sql);
-            if ($stmt->execute($params)) {
-                echo "Data successfully deleted!";
-            } else {
-                echo "Failed to delete data. Please try again.";
-            }
-            break;
-        default:
-            echo "Invalid action";
-            break;
-    }
-}
-?>

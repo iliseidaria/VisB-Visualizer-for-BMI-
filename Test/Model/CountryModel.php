@@ -84,6 +84,20 @@ public function getAllData()
                 JOIN country c ON y.country_id = c.id";
         return $this->select($sql);
     }
+    public function getObeseData()
+    {
+        $sql = "SELECT c.id, c.name, y.year, y.percentage 
+                FROM yearly_data_obese y 
+                JOIN country c ON y.country_id = c.id";
+        return $this->select($sql);
+    }
+    public function getPreObeseData()
+    {
+        $sql = "SELECT c.id, c.name, y.year, y.percentage 
+                FROM yearly_data_pre_obese y 
+                JOIN country c ON y.country_id = c.id";
+        return $this->select($sql);
+    }
 
     public function getSameValue()
 {

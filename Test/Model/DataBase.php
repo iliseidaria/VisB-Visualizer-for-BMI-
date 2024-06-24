@@ -39,17 +39,30 @@ class Database {
     }
     public function insert($sql, $params) {
         $stmt = $this->connection->prepare($sql);
-        $stmt->execute($params);
+        $this->bindParams($stmt, $params);
+        $stmt->execute();
+        $stmt->close();
     }
 
     public function update($sql, $params) {
         $stmt = $this->connection->prepare($sql);
-        $stmt->execute($params);
+        $this->bindParams($stmt, $params);
+        $stmt->execute();
+        $stmt->close();
     }
 
     public function delete($sql, $params) {
         $stmt = $this->connection->prepare($sql);
-        $stmt->execute($params);
+        $this->bindParams($stmt, $params);
+        $stmt->execute();
+        $stmt->close();
+    }
+
+    private function bindParams($stmt, $params) {
+        if (!empty($params)) {
+            $types = str_repeat('s', count($params));
+            $stmt->bind_param($types, ...$params);
+        }
     }
 }
 ?>
