@@ -155,8 +155,6 @@
                     <li>Logout pentru a reveni la interfața de utilizator.</li>
                 </ul>
             </li>
-        </ul>
-
         </section>
         <section id="users">
             <h4>2.3 Clase și caracteristici ale utilizatorilor</h4>
@@ -182,7 +180,6 @@
                 </ul>
             </li>
         </ul>
-
         </section>
         <section id="operating-environment">
             <h4>2.4 Mediul de operare</h4>
