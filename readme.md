@@ -106,7 +106,7 @@
         </section>
         <section id="product-scope">
             <h4>1.4 Scopul Produsului</h4>
-            <p>Scopul aplicației este de a oferi utilizatorilor posibilitatea de a vizualiza și compara indicele de masă corporală. Cei care folosesc aplicația pot descoperi cum se situează în raport cu alți oameni din aceeași categorie de vârstă, țară sau sex. Utilizatorii vor putea căuta folosind opțiunea de 'search' țara, anul, pe care vor să le compare, referitor la BMI.</p>
+            <p>Scopul aplicației este de a oferi utilizatorilor, prin intermediul funcționalităților sale avansate, oportunitatea de a explora datele BMI în contextul țărilor membre UE, de a efectua comparații în funcție de diferite criterii precum anul și grupa de vârstă, și de a vizualiza tendințe și distribuții în moduri variate și interactive.</p>
         </section>
         <section id="references">
             <h4>1.5 Bibliografie</h4>
@@ -120,35 +120,73 @@
         <h3>2. Descriere Generală</h3>
         <section id="product-perspective">
             <h4>2.1 Perspectiva produsului</h4>
-            <p>VisB (Visualizer for BMI) este o aplicație dezvoltată în cadrul cursului de Tehnologii Web, menită să ofere o platformă de vizualizare a indicelui de masă corporal și de comparare a acestuia cu alte date.</p>
+            <p>VisB (Visualizer for BMI) este o aplicație dezvoltată în cadrul cursului de Tehnologii Web, menită să ofere o platformă comprehensivă pentru calculul, vizualizarea și compararea indicelui de masă corporală (BMI) și a altor date relevante. Utilizatorii pot calcula BMI-ul propriu folosind două unități de măsură diferite (metric și US/engleză), oferind astfel o flexibilitate optimă în funcție de preferințele lor.</p>
+            <p>Aplicația permite utilizatorilor să vizualizeze statistici legate de procentul BMI al țărilor din Uniunea Europeană, bazate pe datele furnizate de Eurostat. De asemenea, utilizatorii pot compara aceste date în mod flexibil și le pot vizualiza în trei moduri diferite, oferind o perspectivă detaliată asupra distribuției BMI în diverse țări europene.</p>
+            <p>Utilizatorii cu rol de administrator au acces la funcționalități suplimentare, inclusiv administrarea bazei de date. Aceștia pot vizualiza, adăuga, edita și șterge date din baza de date, asigurând astfel o gestionare eficientă și actualizarea constantă a informațiilor disponibile în aplicație.</p>
         </section>
         <section id="product-functions">
             <h4>2.2 Funcționalitățile produsului</h4>
             <p>Fiecare utilizator va avea acces la următoarele funcționalități:</p>
-            <ul>
-                <li>să consulte pagina "Acasă" pentru a se informa despre ce înseamnă BMI și pentru a-și calcula indicele de masă corporală</li>
-                <li>să acceseze pagina "Statistică" pentru a vizualiza statistici despre țările din blocul Uniunii Europene</li>
-                <li>să acceseze pagina "Comparare" pentru a compara datele după niște criterii arbitrare, cum ar fi anul, țara, sexul, etc.</li>
-                <li>să acceseze pagina "Vizualizare" pentru a vizualiza datele într-un format grafic</li>
-                <li>să acceseze pagina "Ajutor" pentru a beneficia de sfaturi în vederea utilizării aplicației</li>
-                <li>dacă utilizatorul are rol de <b>admin</b>, acesta poate adăuga și șterge date în mod permanent</li>
-            </ul>
+                <ul>
+                    <li>să consulte pagina "Acasă" pentru a se informa în detaliu despre semnificația indicelui de masă corporală (BMI) și pentru a-și calcula propriul BMI utilizând un calculator care permite alegerea unității de măsură preferate (metric sau US/engleză). De asemenea, utilizatorii pot vizualiza criteriile de clasificare ale BMI-ului propriu și categoria de sănătate corespunzătoare, împreună cu formulele generale utilizate pentru calculul BMI-ului.</li>
+                    <li>să acceseze pagina "Statistics" pentru a vizualiza 4 tipuri de statistici despre țările din blocul Uniunii Europene:
+                    <ol>
+                        <li>Top 10 țări cu cea mai mare creștere privind indicele BMI în ultimii doi ani pentru care există informații în baza de date.</li>
+                        <li>Top 10 țări cu cel mai mare risc de obezitate în cel mai recent an disponibil în baza de date, calculat pe baza unui indice ponderat.</li>
+                        <li>Top 10 țări cu cea mai mare medie procentuală de pre-obezitate, calculată ca medie aritmetică a valorilor din toți anii disponibili.</li>
+                        <li>Listă grupată (valoare, an, listă de țări) pentru țările care au aceeași valoare pentru anul respectiv, privind datele referitoare la persoanele "Overweight".</li>
+                    </ol>
+                </li>
+            <li>să acceseze pagina "Comparare" pentru a compara în mod flexibil datele din baza de date, utilizatorul având posibilitatea de a alege țările, anii și tabelele pentru comparare.</li>
+            <li>să acceseze pagina "Vizualizare" pentru a vizualiza datele din baza de date în 3 maniere diferite:
+                <ul>
+                    <li>Bar Chart (unde utilizatorul poate alege anul și tabela dorită pentru vizualizare).</li>
+                    <li>Geo Chart (unde utilizatorul poate alege anul și tabela dorită pentru vizualizare).</li>
+                    <li>Line Chart (unde utilizatorul poate alege tabela dorită pentru vizualizare, pentru care se afișează progresul liniar al țărilor pe parcursul anilor).</li>
+                </ul>
+            </li>
+            <li>să acceseze pagina "Contact" pentru a beneficia de informațiile necesare pentru contactarea echipei în caz de cereri privind modul de utilizare a aplicației, feedback sau alte întrebări.</li>
+            <li>dacă utilizatorul are rol de <b>admin</b>, acesta poate accesa funcționalități suplimentare:
+                <ul>
+                    <li>Accesarea unei interfețe personalizate pentru admin unde poate vizualiza și gestiona toate datele din baza de date sub formă tabelară, prin logare în pagina Login din interfața utilizatorului.</li>
+                    <li>Importarea datelor din fișiere CSV pentru actualizarea bazei de date în pagina ”Main Page”.</li>
+                    <li>Vizualizarea datelor și descărcarea acestora în formatele CSV, WebP și SVG în pagina ”Visualize Data”.</li>
+                    <li>Modificarea datelor prin adăugarea, editarea sau ștergerea înregistrărilor existente în baza de date în pagina ”Modify Data”.</li>
+                    <li>Logout pentru a reveni la interfața de utilizator.</li>
+                </ul>
+            </li>
+        </ul>
+
         </section>
         <section id="users">
             <h4>2.3 Clase și caracteristici ale utilizatorilor</h4>
             <h5>2.3.1 Utilizator principal</h5>
             <ul>
-                <li>Utilizatorii pot fi orice categorie de oameni care doresc să își calculeze indicele de masă corporală și să îl compare cu alte date</li>
+                <li>Utilizatorii platformei sunt persoane din diverse categorii sociale și demografice, având în comun dorința de a monitoriza și evalua indicele de masă corporală.</li>
             </ul>
             <h5>2.3.2 Caracteristici</h5>
             <ul>
                 <li>Utilizatorii care au rol de <b>admin</b> pot accesa toate paginile și au funcționalitatea de a adăuga și șterge date</li>
-                <li>Utilizatorii care nu sunt autentificați pot să vizualizeze doar anumite pagini</li>
-            </ul>
+                <li>Utilizatori autentificați (Non-admin)
+                <ul>
+                    <li><b>Acces restricționat:</b> Au acces la paginile de profil, istoricul personal al IMC-ului și unele funcționalități de bază.</li>
+                    <li><b>Vizualizare și analiză:</b> Pot vizualiza propriile date de IMC și rapoarte personalizate.</li>
+                    <li><b>Funcționalități limitate:</b> Pot adăuga și modifica doar propriile date de IMC și setările de profil personal.</li>
+                </ul>
+            </li>
+            <li>Utilizatori neautentificați
+                <ul>
+                    <li><b>Acces limitat:</b> Pot vizualiza doar paginile publice, cum ar fi informații generale despre IMC, articole educative și exemple de calcule.</li>
+                    <li><b>Funcționalități de bază:</b> Pot folosi calculatorul de IMC fără a salva datele sau a accesa funcționalitățile avansate.</li>
+                    <li><b>Invitație la autentificare:</b> Sunt încurajați să se autentifice sau să se înregistreze pentru a beneficia de toate funcționalitățile platformei.</li>
+                </ul>
+            </li>
+        </ul>
+
         </section>
         <section id="operating-environment">
             <h4>2.4 Mediul de operare</h4>
-            <p>Produsul dezvoltat poate fi utilizat pe orice dispozitiv cu un browser web care suportă HTML5, CSS și JavaScript.</p>
+            <p>Produsul dezvoltat poate fi utilizat pe orice dispozitiv cu un browser web care suportă HTML5, CSS și JavaScript. Aplicația este construită utilizând PHP pe backend și implementând arhitectura MVC pentru o structură clară și ușor de întreținut. Routarea fișierelor este realizată eficient pentru a asigura navigarea fluidă între diferitele pagini și funcționalități. De asemenea, am dezvoltat un API REST propriu pentru a vizualiza și compara informații referitoare la indicele de masă corporală (IMC), folosind date publice furnizate de Eurostat.</p>
         </section>
         <section id="documentation">
             <h4>2.5 Documentația pentru utilizator</h4>
@@ -163,22 +201,44 @@
             <ul>
                 <li id="nav-bar"><b>Bara de navigație</b></li>
                 <li>Aceasta reprezintă meniul de navigare către fiecare pagină a aplicației, prezent pe fiecare pagină totodată.</li>
-                <!-- aici adaugi imaginea cu bara de navigație -->
+                <img src=".\img\bara_de_navigatie.jpg" style="width: 60%; height: auto;">
                 <li id="home-page"><b>Pagina de acasă</b></li>
                 <li>Pagina are rolul de a prezenta definiția BMI-ului și de a oferi posibilitatea calculării acestuia.</li>
-                <!-- aici adaugi imaginea cu home -->
+                <img src=".\img\home1.jpg" style="width: 60%; height: auto;">
+                <img src=".\img\home2.jpg" style="width: 60%; height: auto;">
+                <img src=".\img\home3.jpg" style="width: 60%; height: auto;">
                 <li id="learning"><b>Pagina de statistică</b></li>
                 <li>Pagina oferă un tabel cu statistici referitoare la statele membre din UE.</li>
-                <!-- imaginea cu statistics -->
+                <img src=".\img\statistics1.jpg" style="width: 60%; height: auto;">
+                <img src=".\img\statistics2.jpg" style="width: 60%; height: auto;">
+                <p>Iar mai jos am atașat afișarea statisticilor:</p>
+                <img src=".\img\statistics3.jpg" style="width: 60%; height: auto;">
+                <img src=".\img\statistics5.jpg" style="width: 60%; height: auto;">
+                <img src=".\img\statistics6.jpg" style="width: 60%; height: auto;">
+                <img src=".\img\statistics7.jpg" style="width: 60%; height: auto;">
                 <li id="rules"><b>Pagina de comparare</b></li>
                 <li>Pagina unde utilizatorul poate compara informațiile din baza de date după criteriile oferite.</li>
-                <!-- poză cu comparison -->
+                <img src=".\img\comparison.jpg" style="width: 60%; height: auto;">
                 <li id="signs"><b>Pagina de vizualizare</b></li>
                 <li>Pagina conține un grafic, la alegere, cu datele din baza de date.</li>
-                <!-- imaginea cu visualization -->
-                <li id="error400"><b>Pagina administratorului</b></li>
-                <li>Pagina de <b>admin</b>, cu funcționalitatea mai sus descrisă.</li>
-                <!-- pagina de adm -->
+                <img src=".\img\visualization1.jpg" style="width: 60%; height: auto;">
+                <img src=".\img\visualization2.jpg" style="width: 60%; height: auto;">
+                <p>Varianta de Geo Chart:</p>
+                <img src=".\img\visualization3.jpg" style="width: 60%; height: auto;">
+                <p>Varianta de Line Chart:</p>
+                <img src=".\img\visualization4.jpg" style="width: 60%; height: auto;">
+                <li>Pagina de contact.</li>
+                <img src=".\img\contact.jpg" style="width: 60%; height: auto;">
+                <li>Pagina de login pentru admin.</li>
+                <img src=".\img\login.jpg" style="width: 60%; height: auto;">
+                <li><b>Pagina administratorului</b></li>
+                <p>Main Page:</p>
+                <img src=".\img\admin1.jpg" style="width: 60%; height: auto;">
+                <p>Crop din Visualize Data:</p>
+                <img src=".\img\admin2.jpg" style="width: 60%; height: auto;">
+                <p>Modify Data:</p>
+                <img src=".\img\modify1.jpg" style="width: 60%; height: auto;">
+                <img src=".\img\modify2.jpg" style="width: 60%; height: auto;">
             </ul>
         </section>
         <section id="hardware-interface">
@@ -188,7 +248,7 @@
         <section id="software-interface">
             <h4>3.3 Interfața Software</h4>
             <p>Cerințele minime de software includ un browser funcțional, compatibil cu HTML5 și cu JavaScript.</p>
-            <h5>Postgres Database</h5>
+            <h5>MySQL Database</h5>
             <p>Aceasta reprezintă baza de date în care stocăm informații despre fiecare utilizator, întrebările, chestionarele și răspunsurile la acestea.</p>
         </section>
         <section id="communication-interface">
