@@ -3,15 +3,26 @@ require_once "Database.php";
 
 class CountryModel extends Database
 {
-    //functie pt comparison.php
-    public function getCountryData($country1, $country2, $year)
+    //functii pt comparison.php
+    public function getCountriesFromDatabase()
     {
-        $sql = "SELECT c.name, y.year, y.percentage 
-                FROM yearlyData y 
-                JOIN country c ON y.country_id = c.id 
-                WHERE (c.name = ? OR c.name = ?) AND y.year = ?"; 
-                //where... -> Filtrează rezultatele pentru a include doar rândurile unde numele țării este unul dintre cele două nume furnizate și anul este cel specificat. Semnele de întrebare (?) sunt parametri pentru a preveni SQL injection.
-        return $this->select($sql, [$country1, $country2, $year]);
+        $sql = "SELECT name FROM yearlydata";
+        return $this->select($sql);
+    }
+
+    public function getCountryData($country, $year, $table)
+    {
+        $allowedTables = ['yearlydata', 'yearly_data_pre_obese', 'yearly_data_obese'];
+        if (!in_array($table, $allowedTables)) {
+            throw new Exception('Invalid table selected');
+    }
+
+    $sql = "SELECT c.name, y.year, y.percentage 
+            FROM $table y 
+            JOIN country c ON y.country_id = c.id 
+            WHERE c.name = ? AND y.year = ?";
+
+    return $this->select($sql, [$country, $year]);
     }
 
     public function getTop10CountriesWithIncreasingObesity()
