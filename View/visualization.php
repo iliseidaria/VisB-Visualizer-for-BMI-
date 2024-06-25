@@ -2,10 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualization for BMI</title>
     <link rel="stylesheet" href="style-visualization.css">
     <link rel="stylesheet" href="style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VisB</title>
+    <!-- Include Chart.js pentru grafice -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://www.gstatic.com/charts/loader.js"></script>
 </head>
@@ -17,6 +18,7 @@
                     <p class="titlu">Visualizer for BMI</p>
                 </div>
 
+                <!-- Bara de navigare -->
                 <div class="bara">
                     <nav class="navbar">
                         <ul>
@@ -30,7 +32,7 @@
                     </nav>
                 </div>
 
-                <!-- Responsive Menu -->
+                <!-- Meniu responsive -->
                 <div id="responsive-menu-container" class="responsive-menu-container">
                     <div id="responsive-menu-bar" class="responsive-menu-bar">
                         <span>Menu</span>
@@ -48,10 +50,11 @@
                     </div>
                 </div>
 
+                <!-- Butoane pentru tipuri de grafice -->
                 <div class="buttons-vis">
-                    <button id="BarChartButton" onclick="showForm('barChartForm')">Bar Chart</button>
-                    <button id="GeoChartButton" onclick="showForm('geoChartForm')">Geo Chart</button>
-                    <button id="LineChartButton" onclick="showForm('lineChartForm')">Line Chart</button>
+                    <button id="BarChartButton">Bar Chart</button>
+                    <button id="GeoChartButton">Geo Chart</button>
+                    <button id="LineChartButton">Line Chart</button>
                 </div>
 
                 <!-- Formular Bar Chart -->
@@ -101,10 +104,12 @@
                     <button type="submit">Submit</button>
                 </form>
 
+                <!-- Rezultatele vizualizării -->
                 <div class="results">
                     <iframe id="chartFrame" name="chartFrame" src="View/bar_chart.php" style="width: 100%; height: 800px; border: none;"></iframe>
                 </div>
                 
+                <!-- Buton pentru export -->
                 <div class="export">
                     <p class="export-text">Export as:</p>
                     <div class="action-buttons">
@@ -115,89 +120,52 @@
                 </div>
             </div>
 
+            <!-- Footer -->
             <footer>
-
+                <!-- Continut footer -->
             </footer>
         </div>
     </main>
 
+    <!-- JavaScript pentru interactivitate -->
     <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        var responsiveMenuBar = document.getElementById('responsive-menu-bar');
-        var responsiveMenu = document.getElementById('responsive-menu');
-        var menuCloseBar = document.getElementById('menu-close-bar');
+        document.addEventListener('DOMContentLoaded', function() {
+            var responsiveMenuBar = document.getElementById('responsive-menu-bar');
+            var responsiveMenu = document.getElementById('responsive-menu');
+            var menuCloseBar = document.getElementById('menu-close-bar');
 
-        // toggle responsive menu
-        responsiveMenuBar.addEventListener('click', function() {
-            responsiveMenu.style.display = (responsiveMenu.style.display === 'block') ? 'block' : 'block';
-        });
+            // Toggle pentru meniul responsiv
+            responsiveMenuBar.addEventListener('click', function() {
+                responsiveMenu.style.display = (responsiveMenu.style.display === 'block') ? 'none' : 'block';
+            });
 
-        // close menu
-        menuCloseBar.addEventListener('click', function() {
-            responsiveMenu.style.display = 'none';
-        });
+            // Închiderea meniului
+            menuCloseBar.addEventListener('click', function() {
+                responsiveMenu.style.display = 'none';
+            });
 
-        //  actualizarea iframe-ului si afisare formular corespunzator
-        function updateChart(chartType) {
-            var chartForm, chartFrame;
-            
-            // verific tipul de chart
-            if (chartType === 'Bar Chart') {
-                document.getElementById('barChartForm').style.display = 'block';
-                document.getElementById('geoChartForm').style.display = 'none';
-                document.getElementById('lineChartForm').style.display = 'none';
-            } else if (chartType === 'Geo Chart') {
-                document.getElementById('barChartForm').style.display = 'none';
-                document.getElementById('geoChartForm').style.display = 'block';
-                document.getElementById('lineChartForm').style.display = 'none';
-            } else if (chartType === 'Line Chart') {
+            // Actualizarea formularului și vizualizarea corespunzătoare a graficului
+            function updateChart(chartType) {
                 document.getElementById('barChartForm').style.display = 'none';
                 document.getElementById('geoChartForm').style.display = 'none';
-                document.getElementById('lineChartForm').style.display = 'block';
+                document.getElementById('lineChartForm').style.display = 'none';
+                document.getElementById(chartType + 'Form').style.display = 'block';
+                responsiveMenu.style.display = 'none';
             }
 
-            responsiveMenu.style.display = 'none';
-        }
+            // Adăugarea evenimentelor pentru fiecare tip de grafic
+            document.getElementById('BarChartButton').addEventListener('click', function() {
+                updateChart('barChart');
+            });
 
-        document.getElementById('BarChartButton').addEventListener('click', function() {
-            var year = document.getElementById('barYearSelect').value;
-            var bmiCategory = document.getElementById('barBmiCategorySelect').value;
-            updateChart('Bar Chart');
-            updateChartWithGetParams('View/bar_chart.php', year, bmiCategory);
+            document.getElementById('GeoChartButton').addEventListener('click', function() {
+                updateChart('geoChart');
+            });
+
+            document.getElementById('LineChartButton').addEventListener('click', function() {
+                updateChart('lineChart');
+            });
         });
-
-        document.getElementById('GeoChartButton').addEventListener('click', function() {
-            var year = document.getElementById('geoYearSelect').value;
-            var bmiCategory = document.getElementById('geoBmiCategorySelect').value;
-            updateChart('Geo Chart');
-            updateChartWithGetParams('View/geo_chart.php', year, bmiCategory);
-        });
-
-        document.getElementById('LineChartButton').addEventListener('click', function() {
-            var bmiCategory = document.getElementById('lineBmiCategorySelect').value;
-            updateChart('Line Chart');
-            updateChartWithGetParams('View/line_chart.php', null, bmiCategory);
-        });
-
-        // fct actualizare iframe-ul cu parametrii GET
-        function updateChartWithGetParams(url, year, bmiCategory) {
-            var queryParams = [];
-
-            if (year !== null) {
-                queryParams.push('year=' + encodeURIComponent(year));
-            }
-
-            if (bmiCategory !== null) {
-                queryParams.push('bmi_category=' + encodeURIComponent(bmiCategory));
-            }
-
-            var queryString = queryParams.join('&');
-            var iframeSrc = url + '?' + queryString;
-            document.getElementById('chartFrame').src = iframeSrc;
-        }
-
-    });
-</script>
-
+    </script>
 </body>
 </html>
