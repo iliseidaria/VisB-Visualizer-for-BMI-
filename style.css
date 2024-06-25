@@ -140,7 +140,6 @@ body {
 }
 
 /*menu-navbar*/
-
 .bara {
     width: 100%;
     height: auto;
@@ -167,7 +166,6 @@ body {
     text-align: center;
     font-size: 27px;
     transition: background-color 0.3s, color 0.3s;
-    /* margin-right: 10px; */
 }
 
 .navbar a:hover {
@@ -183,7 +181,6 @@ body {
 @media (max-width: 1233px) {
     li>a {
         font-size: 15px;
-        /* display: inline-block; */
     }
 }
 
@@ -209,8 +206,7 @@ footer {
     }
 }
 
-/*index.html*/
-
+/*home.html*/
 .description1 {
     padding-left: 15px;
     padding-right: 15px;
@@ -245,7 +241,6 @@ footer {
 }
 
 .calculator,
-.desen,
 .adults,
 .children {
   flex-grow: 1; 
@@ -357,15 +352,7 @@ footer {
     width: 30%;
 }
 
-.desen{
-    display:flex;
-    flex-direction: column;
-    justify-content:space-around;
-    align-items: center;
-}
-
 /*login.html*/
-
 .login-buttons{
     width: 100%;
     height: auto;
@@ -384,6 +371,7 @@ footer {
     text-align: left;
 }
 
+/*butoane + altele*/
 h2 {
     text-align: center;
     margin-bottom: 20px;
